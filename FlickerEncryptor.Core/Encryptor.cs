@@ -35,6 +35,7 @@ namespace FlickerEncryptor.Client
                     using (var cs = new CryptoStream(ms, AES.CreateEncryptor(), CryptoStreamMode.Write))
                     {
                         cs.Write(bytesToBeEncrypted, 0, bytesToBeEncrypted.Length);
+                        //TODO: write salt and IV to file
                         cs.Close();
                     }
                     encryptedBytes = ms.ToArray();
